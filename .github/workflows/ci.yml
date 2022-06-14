@@ -1,0 +1,50 @@
+# This workflow will install Python dependencies, run tests and lint with a single version of Python
+# For more information see: https://help.github.com/actions/language-and-framework-guides/using-python-with-github-actions
+
+name: Python Test
+
+on:
+  push:
+    branches:
+      - feature/*
+      - hotfix/*
+      - fix/*
+      - improve/*
+
+jobs:
+  flake8:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: [3.8]
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v2
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: Install dependencies
+        run: |
+          pip install flake8
+      - name: Lint with flake8
+        run: |
+          flake8 . --exclude=addons_repos_ext,dev,addons_ext,*.pyc,__init__.py,*.sh --max-line-length=80 --statistics
+
+  pylint:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: [3.8]
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v2
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: Install dependencies
+        run: |
+          pip install pylint_odoo
+      - name: Lint with pylint
+        run: |
+          pylint addons_bp/* ./**/*.py *.py --rcfile ./dev/pylint.cfg --load-plugins pylint_odoo --fail-under 10 --ignore-patterns=addons_ext,addons_repos_ext
