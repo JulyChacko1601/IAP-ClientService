@@ -22,7 +22,7 @@ def main():
 
 def line_branch(name):
     return re.match(
-        "((feature)|(fix)|(hotfix)|(improve))[/](IAPC)-[0-9]*_[\w]*", name
+        "((feature)|(fix)|(hotfix)|(improve))[/](PROJECT_CODE)-[0-9]*_[\w]*", name
     )
 
 
@@ -35,9 +35,9 @@ Rules for Branch naming
 ** fix/
 ** improve/
 * followed by ticket name 
-** IAPC-123
+** PROJECT_CODE-123
 * followed by _ and branch name
- EX: feature/IAPC-123_new_branch
+ EX: feature/PROJECT_CODE-123_new_branch
 """)
 
 

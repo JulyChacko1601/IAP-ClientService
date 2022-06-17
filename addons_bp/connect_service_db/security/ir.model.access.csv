@@ -1,0 +1,2 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_iap_service_db_connect_user,access.iap.db.connect.user,connect_service_db.model_service_db_connect,base.group_user,1,1,1,1
