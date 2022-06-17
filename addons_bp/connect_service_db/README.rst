@@ -1,8 +1,7 @@
 #addons_bp
-# addons_bp
 
 Client & Service DB Connect
-=======================
+=============================================================================
 
 This modules helps to communicate with client and service DB and can requests
 services from client to service DB.
@@ -43,10 +42,4 @@ For a test connection, create a record with following data:
 
 * Service URL : /service/test/connect
 
-
-----
-
 Upon connecting the request, a success or failure message will update.
-
-
-----
