@@ -21,7 +21,7 @@ def main():
 def line_valid(seq, line):
     if seq == 0:
         return re.match(
-            "^IAPC-[0-9]*\s+\[((FIX)|(REF)|(REM)|(REL)|(MERGE)|(ADD)|(IMP)"
+            "^PROJECT_CODE-[0-9]*\s+\[((FIX)|(REF)|(REM)|(REL)|(MERGE)|(ADD)|(IMP)"
             "|(I18N)|(PEP8))\]\s[\w&.\-!@,#$%^&*()]*:\s[\w\s&.\-!@#$%^&*()]*",
             line
         )
@@ -34,7 +34,7 @@ def line_valid(seq, line):
 def commit_rules():
     print("""
 Rules for the commit messages
-* Subject must start with the ticket number ex: IAPC-123
+* Subject must start with the ticket number ex: PROJECT_CODE-123
 * Followed by the commit type 
     - [ADD]: for adding new modules;
     - [FIX]: for bug fixes;
@@ -53,7 +53,7 @@ Rules for the commit messages
 * Use the body to explain what and why vs. how
  EXAMPLE: 
 
- IAPC-123 [ADD] Module_name: Subject of the commit
+ PROJECT_CODE-123 [ADD] Module_name: Subject of the commit
 
  Body of the commit explaining the changes    
 """)
